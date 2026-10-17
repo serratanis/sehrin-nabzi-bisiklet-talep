@@ -1,0 +1,19 @@
+Şehrin Nabzı - Saatlik Bisiklet Talep Tahmini
+
+Örnek girdiler:
+- Mevsim: 1 (ilkbahar)
+- Ay: 4
+- Saat: 8
+- Tatil: 0 (hayır)
+- Haftanın günü: 1 (Salı)
+- İş günü: 1 (evet)
+- Hava durumu: 1 (açık)
+- Sıcaklık: 14 °C
+- Nem: %58
+- Rüzgâr: 11 km/sa
+- Yağış: 0 mm
+
+Çıktı:
+Bu koşullar için yaklaşık 1413 yolculuk başlangıcı bekleniyor. Tahmini talep düzeyi yüksek.
+
+Not: Bu çıktı, teslim öncesi eğitilmiş modelle doğrulanmıştır.

@@ -1,0 +1,4 @@
+senaryo,mevsim,ay,saat,tatil,hafta_gunu,is_gunu,hava_durumu,sicaklik_c,nem_yuzde,ruzgar_kmh,yagis_mm,tahmin,yorum
+Serin iş günü sabahı,1,4,8,0,1,1,1,14.0,58.0,11.0,0.0,1413,Bu koşullar için yaklaşık 1413 yolculuk başlangıcı bekleniyor. Tahmini talep düzeyi yüksek.
+Sıcak hafta sonu öğleden sonrası,2,7,16,0,5,0,1,31.0,48.0,9.0,0.0,1858,Bu koşullar için yaklaşık 1858 yolculuk başlangıcı bekleniyor. Tahmini talep düzeyi yüksek.
+Yağışlı kış gecesi,4,12,23,0,2,1,3,5.0,86.0,20.0,2.0,0,Bu koşullar için yaklaşık 0 yolculuk başlangıcı bekleniyor. Tahmini talep düzeyi düşük.

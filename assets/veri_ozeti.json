@@ -1,0 +1,27 @@
+{
+  "shape": [
+    8760,
+    15
+  ],
+  "missing_values": 0,
+  "target_mean": 760.5720319634703,
+  "target_median": 646.0,
+  "hourly_peak": 17,
+  "weather_means": {
+    "1": 771.5889292196007,
+    "2": 757.9639493341995,
+    "3": 728.7321288295366
+  },
+  "source_trip_count": 6662611,
+  "date_range": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "excluded_out_of_scope_rows": 36,
+  "correlations": {
+    "sicaklik_c": 0.47813155840979704,
+    "nem_yuzde": -0.4259246622827208,
+    "ruzgar_kmh": -0.015014287921976505,
+    "yagis_mm": -0.03642023468585757
+  }
+}

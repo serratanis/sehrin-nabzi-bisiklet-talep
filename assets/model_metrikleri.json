@@ -1,0 +1,12 @@
+{
+  "satir_sayisi": 8760,
+  "kaynak_yolculuk_sayisi": 6662611,
+  "egitim_satiri": 7008,
+  "test_satiri": 1752,
+  "egitim_donemi": "2025-01-01 / 2025-10-19",
+  "test_donemi": "2025-10-20 / 2025-12-31",
+  "r2": 0.5784792065794855,
+  "mae": 234.29504018544182,
+  "rmse": 315.2012867958926,
+  "baseline_mae": 476.8007720465586
+}
