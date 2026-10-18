@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 .streamlit-server.pid
 data/raw/
+presentation/Sehir-Nabzi-Sunum-Gelistirilmis-v3.pptx
+presentation/Sehir-Nabzi-Sunum-Gelistirilmis.pptx

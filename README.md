@@ -1,52 +1,79 @@
-# Şehrin Nabzı
+# Şehrin Nabzı - Bisiklet Talep Tahmini
 
-Şehrin Nabzı, Washington D.C. bisiklet paylaşım sisteminin saatlik talebini takvim ve hava koşullarından tahmin eden uçtan uca bir Python projesidir. Model, Capital Bikeshare'ın 2025 yılında yayımladığı 6.662.611 yolculuk kaydının saatlik toplamları ile Open-Meteo hava verisini kullanır.
+<p align="center">
+  <strong>Takvim ve hava koşullarından saatlik bisiklet kiralama talebi üreten uçtan uca Python projesi.</strong>
+</p>
 
-## Sonuç
+<p align="center">
+  <a href="https://colab.research.google.com/github/serratanis/sehrin-nabzi-bisiklet-talep/blob/main/notebooks/Sehir_Nabzi_Bisiklet_Talep_Tahmini.ipynb"><img alt="Google Colab" src="https://img.shields.io/badge/Google_Colab-Aç-FF9F1C?logo=googlecolab&logoColor=white"></a>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white">
+  <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-Model-F7931E?logo=scikitlearn&logoColor=white">
+  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-Arayüz-FF4B4B?logo=streamlit&logoColor=white">
+</p>
 
-Zaman sırası korunarak ayrılan test döneminde model R² 0,578 ve MAE 234,3 üretti. Yalnızca eğitim ortalamasını kullanan temel yaklaşımın MAE değeri 476,8 oldu. Doğrusal model, temel yaklaşıma göre hatayı yüzde 50,9 azalttı.
+Şehrin Nabzı, Washington D.C. bisiklet paylaşım sisteminin saatlik talebini takvim ve hava koşullarından tahmin eder. Proje; veri toplama, temizleme, keşifçi analiz, modelleme, dürüst değerlendirme ve kullanıcı arayüzünü tek bir yeniden üretilebilir akışta birleştirir.
 
-## Tarayıcıda açma
+![Gerçek ve tahmin edilen talep](assets/04_gercek_tahmin.png)
 
-macOS'ta terminal komutu yazmadan çalıştırmak için `SEHRIN_NABZI_BASLAT.command` dosyasına çift tıklayın. Uygulama tarayıcıda açılır. Kapatmak için `SEHRIN_NABZI_DURDUR.command` dosyasına çift tıklayın.
+## Öne çıkan sonuç
 
-Terminalden başlatmak isterseniz:
+- Veri dönemi: **2025**, toplam **8.760 saatlik gözlem**
+- Kaynak hacim: Capital Bikeshare tarafından yayımlanan **6.662.611 yolculuk**
+- Zaman sırası korunmuş test sonucu: **R² 0,578**, **MAE 234,3**
+- Eğitim ortalaması baseline MAE: **476,8**
+- Baseline'a göre hata azalması: **%50,9**
+
+Model sonucu tek başına değil, baseline karşılaştırması ve hata grafikleriyle birlikte raporlanır.
+
+## Hızlı başlangıç
+
+### Mac'te arayüzü açma
+
+`SEHRIN_NABZI_BASLAT.command` dosyasına çift tıklayın. Kapatmak için `SEHRIN_NABZI_DURDUR.command` dosyasını kullanın.
+
+### Terminal ile çalıştırma
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-## Kurulum ve doğrulama
+Model deneyini ve testleri yeniden çalıştırmak için:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
 python src/run_experiment.py
 python -m pytest -q
 ```
 
-İşlenmiş CSV teslim paketinde hazırdır. Ham veriden yeniden üretmek için internet bağlantısıyla:
+İşlenmiş veri projede hazırdır. Ham kaynaklardan yeniden üretmek için internet bağlantısıyla `python src/prepare_dataset.py --download` komutunu kullanabilirsiniz.
 
-```bash
-python src/prepare_dataset.py --download
-```
+## Proje çıktıları
+
+- [Colab çalışma defteri](https://colab.research.google.com/github/serratanis/sehrin-nabzi-bisiklet-talep/blob/main/notebooks/Sehir_Nabzi_Bisiklet_Talep_Tahmini.ipynb)
+- `reports/Sehir-Nabzi-Proje-Raporu-Gelistirilmis-v2.docx`: geliştirilmiş proje raporu
+- `presentation/Sehir-Nabzi-Sunum-Gelistirilmis-v2.pptx`: kapak tasarımlı beş slaytlık sunum
+- `MODEL_CARD.md`: kullanım sınırları ve model değerlendirmesi
+- `QUALITY_AUDIT.md`: veri ve kalite kontrolleri
 
 ## Proje yapısı
 
-- `app.py`: görsel tahmin paneli
-- `data/processed`: 2025'e ait 8.760 saatlik model verisi
-- `src`: veri hazırlama, model eğitimi ve mini uygulama
-- `notebooks`: çalıştırılmış Colab uyumlu not defteri
-- `assets`: grafikler, metrikler, örnek tahminler ve eğitilmiş model
-- `reports`: bir sayfalık proje raporu
-- `presentation`: beş slaytlık sunum
-- `tests`: veri, model ve arayüz yardımcıları için otomatik testler
+```text
+app.py          Streamlit tahmin paneli
+data/processed  2025 saatlik model verisi
+src/            Veri hazırlama ve modelleme kodları
+notebooks/      Colab uyumlu çalışma defteri
+assets/         Grafikler, metrikler ve eğitilmiş model
+reports/        Proje raporu
+presentation/   Beş slaytlık sunum
+tests/          Otomatik testler
+```
 
-## Veri kaynakları
+## Veri kaynakları ve sınırlar
 
-- Capital Bikeshare System Data: https://capitalbikeshare.com/system-data
-- Capital Bikeshare Data License Agreement: https://capitalbikeshare.com/data-license-agreement
-- Open-Meteo Historical Weather API: https://open-meteo.com/en/docs/historical-weather-api
+- [Capital Bikeshare System Data](https://capitalbikeshare.com/system-data)
+- [Capital Bikeshare Data License Agreement](https://capitalbikeshare.com/data-license-agreement)
+- [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api)
 
-Ham yolculuk dosyaları lisans koşulları nedeniyle teslim paketinde yeniden dağıtılmaz. Proje, analiz için üretilmiş saatlik toplamları içerir.
+Ham yolculuk dosyaları lisans koşulları nedeniyle yeniden dağıtılmaz. Model, 2025 Washington D.C. örüntülerini öğrenir; farklı şehir veya dönemlerde yeniden doğrulanmadan operasyonel karar aracı olarak kullanılmamalıdır.
